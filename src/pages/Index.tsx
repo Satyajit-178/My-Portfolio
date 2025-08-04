@@ -2,6 +2,7 @@ import Navigation from '@/components/Portfolio/Navigation';
 import Hero from '@/components/Portfolio/Hero';
 import About from '@/components/Portfolio/About';
 import Experience from '@/components/Portfolio/Experience';
+import TechStack from '@/components/Portfolio/TechStack';
 import Projects from '@/components/Portfolio/Projects';
 import BackgroundElements from '@/components/Portfolio/BackgroundElements';
 
@@ -24,6 +25,7 @@ const Index = () => {
             <div className="lg:w-1/2 lg:py-24">
               <About />
               <Experience />
+              <TechStack />
               <Projects />
             </div>
           </div>

@@ -3,10 +3,9 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:satyajit@example.com', label: 'Email' },
-    { icon: ExternalLink, href: '#', label: 'Website' },
+    { icon: Github, href: 'https://github.com/Satyajit-178', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/satyajit-senapati-4a8017336', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:satyajitsenapati178@gmail.com', label: 'Email' },
   ];
 
   return (

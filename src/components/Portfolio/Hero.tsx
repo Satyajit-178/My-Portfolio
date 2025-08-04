@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -12,12 +12,12 @@ const Hero = () => {
     { icon: Mail, href: 'mailto:satyajitsenapati178@gmail.com', label: 'Email' },
   ];
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { id: 'about', label: 'ABOUT' },
     { id: 'experience', label: 'EXPERIENCE' },
     { id: 'techstack', label: 'TECH STACK' },
     { id: 'projects', label: 'PROJECTS' },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +38,7 @@ const Hero = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navItems]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

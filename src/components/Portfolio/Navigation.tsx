@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('about');
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { id: 'about', label: 'ABOUT' },
     { id: 'experience', label: 'EXPERIENCE' },
     { id: 'techstack', label: 'TECH STACK' },
     { id: 'projects', label: 'PROJECTS' },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +30,7 @@ const Navigation = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navItems]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

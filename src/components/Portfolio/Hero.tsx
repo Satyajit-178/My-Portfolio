@@ -16,15 +16,25 @@ const Hero = () => {
           <h1 className="text-5xl lg:text-7xl font-bold tracking-tight">
             <span className="gradient-text">Satyajit Senapati</span>
           </h1>
-          <h2 className="text-xl lg:text-2xl font-medium text-muted-foreground">
-            Front End Engineer
-          </h2>
         </div>
 
-        {/* Description */}
-        <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-          I build accessible, pixel-perfect digital experiences for the web with modern technologies and thoughtful design.
-        </p>
+        {/* Navigation */}
+        <div className="flex space-x-8 pt-4">
+          {[
+            { id: 'about', label: 'ABOUT' },
+            { id: 'experience', label: 'EXPERIENCE' },
+            { id: 'techstack', label: 'TECH STACK' },
+            { id: 'projects', label: 'PROJECTS' },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-sm font-medium tracking-wider text-muted-foreground hover:text-primary transition-colors"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
 
         {/* Call to action */}
         <div className="pt-4">

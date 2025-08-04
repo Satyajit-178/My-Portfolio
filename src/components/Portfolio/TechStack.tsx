@@ -11,13 +11,13 @@ const TechStack = () => {
     {
       icon: Database,
       category: 'Backend',
-      technologies: ['Python'],
+      technologies: ['Node.js', 'Express.js', 'MongoDB'],
       color: 'text-green-400'
     },
     {
       icon: BarChart3,
       category: 'Data Science',
-      technologies: ['NumPy', 'Pandas', 'Matplotlib'],
+      technologies: ['NumPy', 'Pandas', 'Matplotlib', 'SQL', 'Seaborn'],
       color: 'text-purple-400'
     }
   ];

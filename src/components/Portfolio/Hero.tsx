@@ -18,18 +18,20 @@ const Hero = () => {
           </h1>
         </div>
 
-        {/* Navigation */}
-        <div className="flex space-x-8 pt-4">
+        {/* Vertical Navigation - Centered */}
+        <div className="flex flex-col items-center space-y-6 pt-8">
           {[
             { id: 'about', label: 'ABOUT' },
             { id: 'experience', label: 'EXPERIENCE' },
             { id: 'techstack', label: 'TECH STACK' },
             { id: 'projects', label: 'PROJECTS' },
-          ].map((item) => (
+          ].map((item, index) => (
             <button
               key={item.id}
               onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-sm font-medium tracking-wider text-muted-foreground hover:text-primary transition-colors"
+              className={`text-sm font-medium tracking-wider transition-all duration-300 hover:text-primary hover:scale-110 ${
+                index === 0 ? 'text-primary border-b-2 border-primary pb-1' : 'text-muted-foreground'
+              }`}
             >
               {item.label}
             </button>

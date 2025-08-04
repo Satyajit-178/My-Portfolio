@@ -109,19 +109,6 @@ const Projects = () => {
             </article>
           ))}
         </div>
-        
-        <div className="mt-16 text-center">
-          <Button 
-            variant="outline" 
-            className="glow-border"
-            asChild
-          >
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              View Full Project Archive
-              <ExternalLink className="ml-2 w-4 h-4" />
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );

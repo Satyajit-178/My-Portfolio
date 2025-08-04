@@ -1,5 +1,3 @@
-import Navigation from '@/components/Portfolio/Navigation';
-import TopNavigation from '@/components/Portfolio/TopNavigation';
 import Hero from '@/components/Portfolio/Hero';
 import About from '@/components/Portfolio/About';
 import Experience from '@/components/Portfolio/Experience';
@@ -11,11 +9,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
       <BackgroundElements />
-      <TopNavigation />
       
       <div className="relative z-10 pt-20">
-        <Navigation />
-        
         <div className="max-w-7xl mx-auto px-6 lg:px-16">
           <div className="lg:flex lg:gap-16">
             {/* Left side - Hero (sticky on large screens) */}

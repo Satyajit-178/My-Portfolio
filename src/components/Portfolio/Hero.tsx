@@ -1,12 +1,51 @@
+import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const Hero = () => {
+  const [activeSection, setActiveSection] = useState('about');
+  
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Satyajit-178', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/satyajit-senapati-4a8017336', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:satyajitsenapati178@gmail.com', label: 'Email' },
   ];
+
+  const navItems = [
+    { id: 'about', label: 'ABOUT' },
+    { id: 'experience', label: 'EXPERIENCE' },
+    { id: 'techstack', label: 'TECH STACK' },
+    { id: 'projects', label: 'PROJECTS' },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map(item => item.id);
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="min-h-screen flex flex-col justify-center lg:max-w-2xl">
@@ -18,35 +57,29 @@ const Hero = () => {
           </h1>
         </div>
 
-        {/* Vertical Navigation - Centered */}
-        <div className="flex flex-col items-center space-y-6 pt-8">
-          {[
-            { id: 'about', label: 'ABOUT' },
-            { id: 'experience', label: 'EXPERIENCE' },
-            { id: 'techstack', label: 'TECH STACK' },
-            { id: 'projects', label: 'PROJECTS' },
-          ].map((item, index) => (
-            <button
-              key={item.id}
-              onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
-              className={`text-sm font-medium tracking-wider transition-all duration-300 hover:text-primary hover:scale-110 ${
-                index === 0 ? 'text-primary border-b-2 border-primary pb-1' : 'text-muted-foreground'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Call to action */}
-        <div className="pt-4">
-          <Button 
-            className="glow-border bg-transparent hover:bg-primary/10 text-primary border-primary"
-            size="lg"
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            View My Work
-          </Button>
+        {/* Enhanced Vertical Navigation - Left Aligned */}
+        <div className="flex flex-col items-start space-y-4 pt-8">
+          <div className="flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={cn(
+                  "text-sm font-medium tracking-wider transition-all duration-300 relative group",
+                  "hover:text-primary hover:scale-105 transform",
+                  activeSection === item.id 
+                    ? "text-primary" 
+                    : "text-muted-foreground"
+                )}
+              >
+                <span className="relative z-10">{item.label}</span>
+                {activeSection === item.id && (
+                  <div className="absolute inset-0 bg-primary/10 rounded-lg -m-2 animate-pulse" />
+                )}
+                <div className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Social links */}

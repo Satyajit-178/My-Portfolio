@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Light blue background matching reference -->
+  <rect width="64" height="64" fill="#1e3a8a" rx="8"/>
+  
+  <!-- Dark blue rounded square -->
+  <rect x="12" y="12" width="40" height="40" fill="#1a1f2e" rx="6"/>
+  
+  <!-- Glowing teal "S" letter matching website primary color -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Glowing "S" with website's teal color -->
+  <path d="M18 16C18 16 22 16 26 16C30 16 34 17 34 20C34 23 30 24 26 24C22 24 18 23 18 22" stroke="#2dd4bf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)"/>
+  <path d="M34 24C34 24 30 24 26 24C22 24 18 25 18 28C18 31 22 32 26 32C30 32 34 31 34 30" stroke="#2dd4bf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)"/>
+  <path d="M18 32C18 32 22 32 26 32C30 32 34 33 34 36C34 39 30 40 26 40C22 40 18 39 18 38" stroke="#2dd4bf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)"/>
+</svg> 

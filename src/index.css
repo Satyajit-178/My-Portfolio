@@ -136,28 +136,77 @@ All colors MUST be HSL.
     border-color: hsl(var(--glow) / 0.5);
   }
 
-  /* Floating animation */
+  /* Enhanced floating animation */
   .float {
     animation: float 6s ease-in-out infinite;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
   }
 
-  /* Gradient text */
+  /* Particle float animation */
+  .animate-float {
+    animation: particle-float 15s linear infinite;
+  }
+
+  @keyframes particle-float {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) scale(1); opacity: 0; }
+  }
+
+  /* Gradient text with enhanced glow */
   .gradient-text {
     background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--text-highlight)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    position: relative;
+  }
+
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--text-highlight)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(8px);
+    opacity: 0.3;
+    z-index: -1;
   }
 
   /* Backdrop blur */
   .backdrop-blur-custom {
     backdrop-filter: blur(10px);
     background: hsl(var(--background) / 0.8);
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
   }
 }
 
@@ -181,11 +230,13 @@ All colors MUST be HSL.
     @apply w-full;
   }
 
-  /* Project card effects */
+  /* Project card effects with enhanced hover */
   .project-card {
-    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-500;
     background: var(--gradient-card);
     box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
   }
 
   .project-card:hover {
@@ -201,11 +252,38 @@ All colors MUST be HSL.
   /* Subtle pulse animation for tech tags */
   .tech-tag {
     @apply transition-all duration-300 hover:scale-105;
+    animation: subtle-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes subtle-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
   }
 
   /* Enhanced glow effect for interactive elements */
   .glow-on-hover:hover {
     @apply transform scale-105;
     box-shadow: 0 0 30px hsl(var(--glow) / 0.4);
+  }
+
+  /* Text reveal animation */
+  .text-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: text-reveal 0.8s ease-out forwards;
+  }
+
+  @keyframes text-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Section divider with glow */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
+    margin: 2rem 0;
   }
 }

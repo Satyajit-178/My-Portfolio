@@ -23,17 +23,10 @@ const TechStack = () => {
   ];
 
   return (
-    <section id="techstack" className="py-24">
-      <div className="space-y-12">
-        <div className="space-y-4">
-          <h2 className="text-3xl lg:text-4xl font-bold gradient-text">
-            Tech Stack
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Technologies and tools I work with to bring ideas to life.
-          </p>
-        </div>
-
+    <section id="techstack" className="py-24 lg:py-32">
+      <div className="max-w-4xl">
+        <h2 className="text-2xl font-bold mb-12 glow-text tracking-wide">TECH STACK</h2>
+        
         <div className="space-y-8">
           {techCategories.map((category) => {
             const Icon = category.icon;

@@ -8,35 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark portfolio theme */
+    --background: 215 25% 8%;
+    --foreground: 210 40% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 215 25% 10%;
+    --card-foreground: 210 40% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 215 25% 10%;
+    --popover-foreground: 210 40% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 177 70% 41%;
+    --primary-foreground: 215 25% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 215 25% 15%;
+    --secondary-foreground: 210 40% 80%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 215 25% 15%;
+    --muted-foreground: 210 20% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 177 70% 41%;
+    --accent-foreground: 215 25% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 25% 20%;
+    --input: 215 25% 15%;
+    --ring: 177 70% 41%;
 
-    --radius: 0.5rem;
+    /* Portfolio specific colors */
+    --glow: 177 70% 41%;
+    --glow-muted: 177 50% 30%;
+    --text-highlight: 177 70% 50%;
+    --nav-active: 177 70% 41%;
+
+    /* Gradients */
+    --gradient-glow: linear-gradient(135deg, hsl(177 70% 41% / 0.2), hsl(177 70% 41% / 0.05));
+    --gradient-card: linear-gradient(135deg, hsl(215 25% 12%), hsl(215 25% 8%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(177 70% 41% / 0.3);
+    --shadow-card: 0 10px 30px hsl(215 25% 4% / 0.5);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +115,81 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Custom glow effects */
+  .glow-text {
+    color: hsl(var(--text-highlight));
+    text-shadow: 0 0 10px hsl(var(--glow) / 0.5);
+  }
+
+  .glow-border {
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 0 20px hsl(var(--glow) / 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .glow-border:hover {
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--glow) / 0.5);
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--text-highlight)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Backdrop blur */
+  .backdrop-blur-custom {
+    backdrop-filter: blur(10px);
+    background: hsl(var(--background) / 0.8);
+  }
+}
+
+@layer components {
+  /* Navigation link hover effect */
+  .nav-link {
+    @apply relative text-muted-foreground transition-colors duration-300 hover:text-foreground;
+  }
+
+  .nav-link.active {
+    @apply text-primary;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* Project card effects */
+  .project-card {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .project-card:hover {
+    @apply transform translate-y-[-2px];
+    box-shadow: var(--shadow-glow), var(--shadow-card);
   }
 }

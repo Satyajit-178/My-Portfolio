@@ -5,7 +5,7 @@ const TechStack = () => {
     {
       icon: Code2,
       category: 'Frontend',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
+      technologies: ['HTML', 'CSS', 'JavaScript', 'React.js'],
       color: 'text-blue-400'
     },
     {
@@ -17,7 +17,7 @@ const TechStack = () => {
     {
       icon: BarChart3,
       category: 'Data Science',
-      technologies: ['NumPy', 'Pandas', 'Matplotlib', 'SQL', 'Seaborn'],
+      technologies: ['NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'SQL', 'Machine Learning' , 'Scikit-learn' ],
       color: 'text-purple-400'
     }
   ];

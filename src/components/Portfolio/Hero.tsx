@@ -14,8 +14,8 @@ const Hero = () => {
 
   const navItems = useMemo(() => [
     { id: 'about', label: 'ABOUT' },
-    { id: 'experience', label: 'EXPERIENCE' },
     { id: 'techstack', label: 'TECH STACK' },
+    { id: 'experience', label: 'EXPERIENCE' },
     { id: 'projects', label: 'PROJECTS' },
   ], []);
 

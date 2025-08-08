@@ -21,8 +21,8 @@ const Index = () => {
             {/* Right side - Content */}
             <div className="lg:w-1/2 lg:py-24">
               <About />
-              <Experience />
               <TechStack />
+              <Experience />
               <Projects />
             </div>
           </div>

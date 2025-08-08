@@ -3,33 +3,23 @@ import { ExternalLink } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      period: 'JULY — DEC 2023',
-      company: 'TechCorp',
-      position: 'Senior Front-End Engineer',
-      description: 'Developed and styled interactive web applications using React, TypeScript, and modern CSS. Led accessibility initiatives and mentored junior developers on best practices.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Jest', 'Storybook'],
+      period: 'JUN — JUL 2025',
+      company: 'Delloite',
+      position: 'Data Visualization Intern',
+      description: 'Worked on creating interactive data visualizations using Tableau and Power BI. Collaborated with cross-functional teams to develop data-driven solutions for clients.',
+      technologies: ['Tableau', 'Power BI', 'SQL', 'Excel'],
       links: [
-        { name: 'Company Site', url: '#' },
+        
       ]
     },
     {
-      period: '2022 — 2023',
-      company: 'DesignStudio Pro',
-      position: 'Full Stack Developer',
-      description: 'Collaborated with designers and product managers to create responsive web applications. Implemented design systems and optimized performance across multiple projects.',
-      technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Prisma', 'Vercel'],
+      period: 'JUN — SEP 2021',
+      company: 'IBM',
+      position: 'AI-ML Intern',
+      description: 'Worked on a project to develop a chatbot using IBM Watson. Gained experience in natural language processing and machine learning.',
+      technologies: ['Python', 'TensorFlow', 'Keras', 'IBM Watson'],
       links: [
-        { name: 'Portfolio', url: '#' },
-      ]
-    },
-    {
-      period: 'JAN — DEC 2021',
-      company: 'StartupXYZ',
-      position: 'Frontend Developer',
-      description: 'Built the customer-facing web application from scratch using modern React patterns. Focused on performance optimization and mobile-first responsive design.',
-      technologies: ['React', 'Redux', 'Styled Components', 'Firebase', 'Cypress'],
-      links: [
-        { name: 'Live App', url: '#' },
+  
       ]
     }
   ];

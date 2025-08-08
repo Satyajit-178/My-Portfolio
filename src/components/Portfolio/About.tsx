@@ -6,20 +6,15 @@ const About = () => {
         
         <div className="space-y-6 text-reveal" style={{ animationDelay: '0.2s' }}>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            I'm a passionate frontend developer with a love for creating beautiful, accessible web experiences. 
-            My journey in web development started with curiosity and has evolved into a deep appreciation for 
-            clean code, user-centered design, and the endless possibilities of modern web technologies.
+            Hi! I'm Satyajit Senapati, building clean, functional, and user-focused web applications. Alongside that, I explore the world of data science, learning how to analyze, visualize, and tell stories through data.
           </p>
           
           <p className="text-lg leading-relaxed text-muted-foreground">
-            When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-            or sharing knowledge with the developer community. I believe in continuous learning and pushing the 
-            boundaries of what's possible on the web.
+            Over time, I've built several personal projects, sharpened my problem-solving skills, and developed a strong interest in full-stack development. Whether it's frontend design or backend logic, I love learning and improving every day.
           </p>
           
           <p className="text-lg leading-relaxed text-muted-foreground">
-            My approach combines technical expertise with creative problem-solving, always keeping the end user 
-            in mind. I'm excited to bring this passion to meaningful projects that make a difference.
+            When I'm not coding, you can find me exploring new tech, building some SaaS or sketching out my next big idea.
           </p>
         </div>
         
